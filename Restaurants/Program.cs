@@ -13,7 +13,7 @@ namespace Restaurants
 
       builder.Services.AddControllersWithViews();
 
-      builder.Services.AddDbContext<RestaurantContext>(
+      builder.Services.AddDbContext<RestaurantsContext>(
                         dbContextOptions => dbContextOptions
                           .UseMySql(
                             builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]

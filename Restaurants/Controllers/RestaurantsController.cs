@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace Restaurants.Controllers
 {
-  public class RestaurantsContoller : Controller
+  public class RestaurantsController : Controller
   {
-    private readonly RestaurantContext _db;
+    private readonly RestaurantsContext _db;
 
     public RestaurantsController(RestaurantsContext db)
     {
@@ -22,6 +22,11 @@ namespace Restaurants.Controllers
       return View(model);
     }
 
+    public ActionResult Create()
+    {
+      return View();
+    }
+
     [HttpPost]
     public ActionResult Create(Restaurant restaurant)
     {
@@ -32,7 +37,7 @@ namespace Restaurants.Controllers
 
     public ActionResult Details(int id)
     {
-      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == Id);
+      Restaurant thisRestaurant = _db.Restaurants.FirstOrDefault(restaurant => restaurant.RestaurantId == id);
       return View(thisRestaurant);
     }
   }
