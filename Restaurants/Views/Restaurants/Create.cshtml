@@ -5,6 +5,10 @@
 @model Restaurants.Models.Restaurant
 
 <h2>ADD A NEW RESTAURANT</h2>
+
+<p><strong>Note!</strong>You need to add at least 1 type of cuisine before you add a restaurant.</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Cuisines") to add a cuisine.</p>
+
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Name)
@@ -13,7 +17,11 @@
   @Html.TextBoxFor(model => model.Rating)
   @Html.LabelFor(model => model.Address)
   @Html.TextBoxFor(model => model.Address)
-  <input type='submit'/>
+  
+  @Html.LabelFor(model => model.Cuisine)
+  @Html.DropDownList("CuisineId")
+  
+  <input type='submit' value="Add new restuarant" class="btn btn-default"/>
 }
 
 <p>@Html.ActionLink("Show all restaurants", "Index")</p>
